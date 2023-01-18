@@ -1,0 +1,6 @@
+### Test endpoint
+GET http://localhost:3003/ping
+
+
+### get lawsuits
+GET http://localhost:3003/lawsuits
