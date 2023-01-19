@@ -50,7 +50,7 @@ export class Lawsuit {
     public concerned_parties: string,
     public original_court: COURTS,
     public start_date: Date,
-    public movements: string[] = []
+    public movements: IMovements[] = []
   ) {}
 
   public getId(): string {
@@ -93,11 +93,11 @@ export class Lawsuit {
     this.start_date = start_date;
   }
 
-  public getMovements(): string[] {
+  public getMovements(): IMovements[] {
     return this.movements;
   }
 
-  public setMovements(movements: string[]): void {
+  public setMovements(movements: IMovements[]): void {
     this.movements = movements;
   }
 }

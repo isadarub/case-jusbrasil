@@ -1,4 +1,4 @@
-import { ILawsuit } from '../models/Lawsuits';
+import { ILawsuit, IMovements } from '../models/Lawsuits';
 import { BaseDatabase } from './BaseDatabase';
 
 export class LawsuitsDatabase extends BaseDatabase {
@@ -20,6 +20,16 @@ export class LawsuitsDatabase extends BaseDatabase {
     const result: ILawsuit[] = await BaseDatabase.connection(
       LawsuitsDatabase.TABLE_LAWSUITS
     ).select();
+
+    return result;
+  };
+
+  public getById = async (id: string) => {
+    const result: ILawsuit[] = await BaseDatabase.connection(
+      LawsuitsDatabase.TABLE_LAWSUITS
+    )
+      .select()
+      .where('id', 'LIKE', `${id}`);
 
     return result;
   };

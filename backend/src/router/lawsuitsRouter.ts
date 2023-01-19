@@ -6,3 +6,4 @@ export const lawsuitsRouter = Router();
 const lawsuitsController = new LawsuitsController();
 
 lawsuitsRouter.get('/', lawsuitsController.getLawsuits);
+lawsuitsRouter.get('/:id', lawsuitsController.getById);

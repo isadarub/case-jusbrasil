@@ -2,5 +2,9 @@
 GET http://localhost:3003/ping
 
 
-### get lawsuits
-GET http://localhost:3003/lawsuits
+### Get lawsuits list
+GET http://localhost:3003/lawsuits?search=banana
+
+### Get lawsuits by id
+GET http://localhost:3003/lawsuits/102
+
