@@ -1,19 +1,39 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router';
+import { GlobalContext } from '../../../global/GlobalContext';
 import { goToLawsuitDetails } from '../../../routes/coordinator';
+import './styles.css';
 
-export const LawsuitsListItem = () => {
+export const LawsuitsListItem = props => {
   // Aqui vou receber os dados da API e mapear para gerar componentes
   const navigate = useNavigate();
+
+  const { setters } = useContext(GlobalContext);
+
+  const movementsMap = props.lawsuit.movements.map(movement => {
+    return (
+      <div key={movement.id}>
+        <p>{`ÚLTIMA MOVIMENTAÇÃO: ${movement.date}`}</p>
+        <p>{movement.description}</p>
+      </div>
+    );
+  });
+
+  const handleCurrentPage = e => {
+    setters.setCurrentLawsuit(props.lawsuit.id);
+  };
+
   return (
-    <>
-      <h1 onClick={() => goToLawsuitDetails(navigate)}>Lawsuit title</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil facilis
-        perferendis ratione voluptatem. Repudiandae sunt totam nostrum veniam,
-        quidem laboriosam soluta nam rem, praesentium id laudantium, at eum
-        deserunt iusto.
-      </p>
-    </>
+    <div className="list-item">
+      <h1
+        className="title"
+        onClick={() => goToLawsuitDetails(navigate, props.lawsuit.id)}
+        onClickCapture={handleCurrentPage}
+      >
+        {`Processo ${props.lawsuit.cns}`}
+      </h1>
+      <div>{movementsMap[movementsMap.length - 1]}</div>
+    </div>
   );
 };
