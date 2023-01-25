@@ -37,9 +37,11 @@ select {
 }
 
 #logo {
-  width: 5vw;
+  width: 100px;
+  height: 100px;
   padding-right: 1vw;
 }
+
 #div-logo {
   display: flex;
 }

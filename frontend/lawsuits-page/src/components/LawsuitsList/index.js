@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { GlobalContext } from '../../global/GlobalContext';
-import { LawsuitsListItem } from './LawsuitsListItem';
+import { GlobalContext } from '../../global/GlobalContext.js';
+import { LawsuitsListItem } from './LawsuitsListItem/index.js';
 import './styles.css';
 
 export const LawsuitsList = () => {
@@ -10,6 +10,7 @@ export const LawsuitsList = () => {
 
   useEffect(() => {
     getList();
+    // eslint-disable-next-line
   }, []);
 
   const cards =

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useContext } from 'react';
-import { COURTS as courtsData } from '../../constants/Courts';
-import { GlobalContext } from '../../global/GlobalContext';
+import { COURTS as courtsData } from '../../constants/Courts.js';
+import { GlobalContext } from '../../global/GlobalContext.js';
 import './styles.css';
 import logo from '../../constants/assets/logo.png';
 
 export const Header = () => {
   const { setters, states, getters } = useContext(GlobalContext);
   const { setCourt, setInputText } = setters;
-  const { inputText } = states;
+  const { inputText, court } = states;
 
   const courts = courtsData.map(court => {
     return <option key={court}>{court}</option>;
@@ -20,6 +20,12 @@ export const Header = () => {
 
   const updateText = e => {
     setInputText(e.target.value);
+  };
+
+  const onClickChange = inputText => {
+    getters.searchLawsuit(inputText);
+    setInputText('');
+    setCourt('');
   };
 
   return (
@@ -39,8 +45,8 @@ export const Header = () => {
       </p>
       {/* Nesse select vem um map da lista constant de tribunais */}
       <div id="div-filters">
-        <select id="courts" defaultValue={''} onChange={chooseCourt}>
-          <option id="disabled-option" value={''} disabled>
+        <select id="courts" defaultValue={court} onChange={chooseCourt}>
+          <option id="disabled-option" value={''}>
             Selecione tribunal...
           </option>
           {courts}
@@ -50,7 +56,7 @@ export const Header = () => {
           value={inputText}
           onChange={updateText}
         />
-        <button onClick={() => getters.searchLawsuit(inputText)}>BUSCAR</button>
+        <button onClick={() => onClickChange(inputText)}>BUSCAR</button>
       </div>
     </div>
   );

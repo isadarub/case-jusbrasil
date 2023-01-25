@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GlobalContext } from './GlobalContext';
+import { GlobalContext } from './GlobalContext.js';
 import axios from 'axios';
 
 export const GlobalState = props => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import { ErrorPage } from '../pages/ErrorPage';
-import { LawsuitDetails } from '../pages/LawsuitDetails';
-import { Main } from '../pages/Main';
+import { ErrorPage } from '../pages/ErrorPage/index.js';
+import { LawsuitDetails } from '../pages/LawsuitDetails/index.js';
+import { Main } from '../pages/Main/index.js';
 
 export const Router = () => {
   return (

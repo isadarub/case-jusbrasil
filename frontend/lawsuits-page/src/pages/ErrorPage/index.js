@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { goToMain } from '../../routes/coordinator';
+import { goToMain } from '../../routes/coordinator.js';
 
 export const ErrorPage = () => {
   const navigate = useNavigate();
