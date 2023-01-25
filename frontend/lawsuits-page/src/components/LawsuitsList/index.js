@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../global/GlobalContext';
 import { LawsuitsListItem } from './LawsuitsListItem';
-
 import './styles.css';
 
 export const LawsuitsList = () => {
   const { states, getters } = useContext(GlobalContext);
-  const { lawsuitsList } = states;
+  const { lawsuitsList, court } = states;
   const { getList } = getters;
 
   useEffect(() => {
@@ -20,9 +19,17 @@ export const LawsuitsList = () => {
       })
     ) : (
       <>
-        <h1>Loading...</h1>
+        <h2>Carregando...</h2>
       </>
     );
 
-  return <div className="list">{cards}</div>;
+  const filteredCards = lawsuitsList
+    .filter(lawsuit => {
+      return lawsuit.original_court === court;
+    })
+    .map(lawsuit => {
+      return <LawsuitsListItem lawsuit={lawsuit} key={lawsuit.id} />;
+    });
+
+  return <div className="list">{court === '' ? cards : filteredCards}</div>;
 };

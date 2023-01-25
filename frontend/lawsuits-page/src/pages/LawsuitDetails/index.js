@@ -19,25 +19,33 @@ export const LawsuitDetails = () => {
 
   const movementsMap = states.lawsuitsList[0].movements.map(movement => {
     return (
-      <tr className="movements" key={movement.id}>
-        <td>{movement.date}</td>
-        <td>{movement.description}</td>
-      </tr>
+      <div className="movements" key={movement.id}>
+        <p>{movement.date}</p>
+        <p>{movement.description}</p>
+      </div>
     );
   });
+
+  const concernedParties = states.lawsuitsList[0].concerned_parties
+    .split(',')
+    .map(person => {
+      return <p>{person}</p>;
+    });
+
+  console.log(concernedParties);
 
   return (
     <>
       <button onClick={() => goToMain(navigate)}>
         Voltar à página de busca de processos
       </button>
-      <h1>{states.lawsuitsList[0].cns}</h1>
-      <table>
-        <tr>
-          <th>Movimentações</th>
-        </tr>
-        {movementsMap}
-      </table>
+      <div>
+        <h1>{states.lawsuitsList[0].cns}</h1>
+        <div>
+          <h2>Movimentações</h2>
+          {movementsMap}
+        </div>
+      </div>
       <div>
         <div>
           <p>Detalhes do processo</p>
@@ -45,6 +53,7 @@ export const LawsuitDetails = () => {
         <hr />
         <div>
           <p>Partes envolvidas</p>
+          <p>{concernedParties}</p>
         </div>
       </div>
     </>

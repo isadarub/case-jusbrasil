@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { GlobalContext } from './GlobalContext';
+import axios from 'axios';
 
 export const GlobalState = props => {
   const URL = 'http://localhost:3003';

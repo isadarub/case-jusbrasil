@@ -21,7 +21,8 @@ button {
   border: none;
   border-radius: 1%;
   color: white;
-  height: 5vh;
+  height: fit-content;
+  padding: 2vh 0;
   width: 10vw;
 }
 
@@ -33,4 +34,12 @@ select {
 
 .disabled-option {
   color: gray;
+}
+
+#logo {
+  width: 5vw;
+  padding-right: 1vw;
+}
+#div-logo {
+  display: flex;
 }

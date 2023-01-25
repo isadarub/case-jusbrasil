@@ -31,7 +31,7 @@ export const LawsuitsListItem = props => {
         onClick={() => goToLawsuitDetails(navigate, props.lawsuit.id)}
         onClickCapture={handleCurrentPage}
       >
-        {`Processo ${props.lawsuit.cns}`}
+        {`Processo ${props.lawsuit.cns} | ${props.lawsuit.original_court}`}
       </h1>
       <div>{movementsMap[movementsMap.length - 1]}</div>
     </div>
