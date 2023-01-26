@@ -1,0 +1,47 @@
+#header {
+  background-color: lightgray;
+  padding: 3% 15%;
+}
+
+input {
+  width: 100%;
+  margin: 0 1% 0 1%;
+  height: 5vh;
+}
+
+#div-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  background-color: #484848;
+  border: none;
+  border-radius: 1%;
+  color: white;
+  height: fit-content;
+  padding: 2vh 0;
+  width: 10vw;
+}
+
+select {
+  width: 20vw;
+  text-align: start;
+  height: 5vh;
+}
+
+.disabled-option {
+  color: gray;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  padding-right: 1vw;
+}
+
+#div-logo {
+  display: flex;
+}

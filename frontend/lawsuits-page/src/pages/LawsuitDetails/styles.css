@@ -1,0 +1,17 @@
+.movements {
+  border: 1px solid gray;
+  padding: 0 20px;
+  margin: 10px 0;
+  width: 50vw;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh 15vw 5vh 5vw;
+}
