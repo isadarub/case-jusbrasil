@@ -30,7 +30,7 @@ export enum COURTS {
 
 export interface IMovements {
   id: string;
-  date: Date;
+  date: string;
   description: string;
   lawsuit_id: string;
 }
@@ -40,7 +40,7 @@ export interface ILawsuit {
   cns: string;
   concerned_parties: string;
   original_court: COURTS;
-  start_date: Date;
+  start_date: string;
 }
 
 export class Lawsuit {
@@ -49,7 +49,7 @@ export class Lawsuit {
     public cns: string,
     public concerned_parties: string,
     public original_court: COURTS,
-    public start_date: Date,
+    public start_date: string,
     public movements: IMovements[] = []
   ) {}
 
@@ -85,11 +85,11 @@ export class Lawsuit {
     this.original_court = original_court;
   }
 
-  public getStart_date(): Date {
+  public getStart_date(): string {
     return this.start_date;
   }
 
-  public setStart_date(start_date: Date): void {
+  public setStart_date(start_date: string): void {
     this.start_date = start_date;
   }
 
