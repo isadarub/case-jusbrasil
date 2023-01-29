@@ -35,12 +35,12 @@ class Migrations extends BaseDatabase {
           cns VARCHAR(255) NOT NULL,
           concerned_parties VARCHAR(255) NOT NULL,
           original_court ENUM("TJAC","TJAL","TJAP","TJAM","TJBA","TJCE","TJDF","TJES","TJGO","TJMA","TJMT","TJMS","TJMG","TJPA","TJPB","TJPE","TJPI","TJPR","TJRJ","TJRN","TJRS","TJRO","TJRR","TJSC","TJSP","TJSE","TJTO"),
-          start_date DATE NOT NULL
+          start_date VARCHAR(255) NOT NULL
       );
 
       CREATE TABLE IF NOT EXISTS ${MovementsDatabase.TABLE_MOVEMENTS}(
           id VARCHAR(255) PRIMARY KEY,
-          date DATE NOT NULL,
+          date VARCHAR(255) NOT NULL,
           description VARCHAR(4000) NOT NULL,
           lawsuit_id VARCHAR(255) NOT NULL,
           FOREIGN KEY (lawsuit_id) REFERENCES ${LawsuitsDatabase.TABLE_LAWSUITS}(id)

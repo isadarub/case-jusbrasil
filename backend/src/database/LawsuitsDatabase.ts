@@ -10,7 +10,6 @@ export class LawsuitsDatabase extends BaseDatabase {
     )
       .select()
       .where('cns', 'LIKE', `%${search}%`)
-      .orWhere('id', 'LIKE', `%${search}%`)
       .orWhere('concerned_parties', 'LIKE', `%${search}%`);
 
     return result;
